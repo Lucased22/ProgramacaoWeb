@@ -1,0 +1,19 @@
+.textBox {
+    margin: 90px;
+    padding: 10px;
+    border: 8px solid rgb(242, 162, 0);
+    border-radius: 10px;
+    background-color: bisque;
+    width: 50%;
+    max-width: 250px;
+} 
+
+body {
+    margin: 0;
+    background-image: url("bg2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: black;
+    /* background-repeat: no-repeat; */
+}
