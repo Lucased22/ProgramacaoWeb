@@ -13,10 +13,10 @@ function createTable(tableIndex) {
     }
     document.write("</table>");
 }
-// document.write("<div>");
+document.write("<div>");
 // Criar as 10 tabelas
 for (var i = 1; i <= 10; i++) {
     createTable(i);
 }
 
-// document.write("</div>");
+document.write("</div>");

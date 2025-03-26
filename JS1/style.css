@@ -5,13 +5,12 @@ table, th, td {
     margin: 5px;
  
 }
-body {
+
+div {
     display: flex;
     flex-direction: row;
-    /* overflow-x: hidden; */
-}
-div {
     border: 1px solid black;
+    overflow-x: auto;
     padding: 5px;
     width: 50%;
 }
