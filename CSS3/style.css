@@ -1,0 +1,21 @@
+.textBox {
+    margin: 90px;
+    padding: 10px;
+    border: 8px solid rgb(242, 162, 0);
+    border-radius: 16px;
+    background-color: black;
+    width: 50%;
+    max-width: 250px;
+} 
+
+body {
+    margin: 0;
+    background-image: url("bg.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.TextStyle {
+    color: white;
+}
