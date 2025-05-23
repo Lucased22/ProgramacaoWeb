@@ -1,27 +1,19 @@
-import { TAMX, PROB_ENEMY_SHIP } from "./config.js"
-import { space } from "./space.js"
+import { ObstacleBase } from "./obstacleBase.js";
+import { ENEMY_SHIP_MIN_SPEED, ENEMY_SHIP_MAX_SPEED, POINTS_ENEMY_SHIP, TAMX } from "./config.js";
 
-class EnemyShip {
+const enemyShipConfig = {
+  src: "assets/png/enemyShip.png", 
+  width: 98, 
+  height: 50,
+  minSpeed: ENEMY_SHIP_MIN_SPEED,
+  maxSpeed: ENEMY_SHIP_MAX_SPEED,
+  points: POINTS_ENEMY_SHIP,
+  type: "enemyShip"
+};
+
+export class EnemyShip extends ObstacleBase {
   constructor() {
-    this.element = document.createElement("img")
-    this.element.className = "enemy-ship"
-    this.element.src = "assets/png/enemyShip.png"
-    this.element.style.top = "-20px"
-    this.element.style.left = `${parseInt(Math.random() * TAMX)}px`
-    space.element.appendChild(this.element)
+    super(enemyShipConfig);
   }
-  move() {
-    this.element.style.top = `${parseInt(this.element.style.top) + 1}px`
-
-  }
-}
-
-const enemyShips = []
-
-export const createRandomEnemyShip = () => {
-  if (Math.random() < PROB_ENEMY_SHIP) enemyShips.push(new EnemyShip())
-}
-
-export const moveEnemyShips = () => {
-  enemyShips.forEach(e => e.move())
+  
 }
