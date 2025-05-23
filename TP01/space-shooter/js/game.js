@@ -24,6 +24,7 @@ const livesDisplay = document.getElementById("lives-display");
 const gameOverMessage = document.getElementById("game-over-message");
 const restartButton = document.getElementById("restart-button");
 const pauseMessage = document.getElementById("pause-message");
+const startMessage = document.getElementById("start-message");
 
 let score = 0;
 let lives = PLAYER_LIVES;
@@ -78,16 +79,20 @@ function resetGameVariables() {
   updateLivesDisplay();
   gameOverMessage.style.display = "none";
   pauseMessage.style.display = "none";
+  startMessage.style.display = "block";
   space.element.style.backgroundPositionY = "0px"; 
 }
 
 window.addEventListener("keydown", (e) => {
-  if (gameState === "initial" && e.key === " ") { 
+  if (gameState === "initial" && e.key === " ") {
+    e.preventDefault(); 
     gameState = "playing";
+    startMessage.style.display = "none";
     gameTimeElapsed = 0; 
     lastSpeedIncreaseTimeMarker = 0;
-    return;
+    return; 
   }
+
 
   if (e.key.toLowerCase() === "p") { 
     if (gameState === "playing") {
