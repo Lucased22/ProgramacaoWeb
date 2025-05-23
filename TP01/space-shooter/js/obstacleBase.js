@@ -1,6 +1,7 @@
-// js/obstacleBase.js
+
 import { space } from "./space.js";
 import { TAMY } from "./config.js";
+import { TAMX } from "./config.js";
 
 export class ObstacleBase {
   constructor(config) {

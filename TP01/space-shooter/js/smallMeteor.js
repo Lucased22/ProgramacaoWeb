@@ -1,23 +1,22 @@
-// js/smallAsteroid.js
 import { ObstacleBase } from "./obstacleBase.js";
 import {
-  SMALL_ASTEROID_MIN_SPEED,
-  SMALL_ASTEROID_MAX_SPEED,
-  POINTS_SMALL_ASTEROID
+  SMALL_METEOR_MIN_SPEED,
+  SMALL_METEOR_MAX_SPEED,
+  POINTS_SMALL_METEOR
 } from "./config.js";
 
-const smallAsteroidConfig = {
+const smallMeteorConfig = {
   src: "assets/png/meteorSmall.png", 
   width: 44,  // Largura 
   height: 42, // Altura 
-  minSpeed: SMALL_ASTEROID_MIN_SPEED,
-  maxSpeed: SMALL_ASTEROID_MAX_SPEED,
-  points: POINTS_SMALL_ASTEROID, // 100 pontos
-  type: "smallAsteroid"
+  minSpeed: SMALL_METEOR_MIN_SPEED,
+  maxSpeed: SMALL_METEOR_MAX_SPEED,
+  points: POINTS_SMALL_METEOR, // 100 pontos
+  type: "smallMeteor"
 };
 
-export class SmallAsteroid extends ObstacleBase {
+export class smallMeteor extends ObstacleBase {
   constructor() {
-    super(smallAsteroidConfig);
+    super(smallMeteorConfig);
   }
 }

@@ -15,8 +15,8 @@ import { space } from "./space.js";
 import { ship } from "./ship.js"; 
 import { EnemyShip } from "./enemyShip.js"; 
 import { FlyingSaucer } from "./flyingSaucer.js"; 
-import { LargeAsteroid } from "./largeAsteroid.js"; 
-import { SmallAsteroid } from "./smallAsteroid.js"; 
+import { LargeMeteor } from "./largeMeteor.js"; 
+import { smallMeteor } from "./smallMeteor.js"; 
 import { Shot } from "./shot.js"; 
 
 const scoreDisplay = document.getElementById("score-display");
@@ -135,9 +135,9 @@ function createRandomObstacle() {
   } else if (rand < PROB_ENEMY_SHIP + PROB_FLYING_SAUCER) {
     obstacles.push(new FlyingSaucer());
   } else if (rand < PROB_ENEMY_SHIP + PROB_FLYING_SAUCER + PROB_LARGE_ASTEROID) {
-    obstacles.push(new LargeAsteroid());
+    obstacles.push(new LargeMeteor());
   } else if (rand < PROB_ENEMY_SHIP + PROB_FLYING_SAUCER + PROB_LARGE_ASTEROID + PROB_SMALL_ASTEROID) {
-    obstacles.push(new SmallAsteroid());
+    obstacles.push(new smallMeteor());
   }
 }
 

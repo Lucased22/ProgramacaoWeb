@@ -1,4 +1,3 @@
-// js/largeAsteroid.js
 import { ObstacleBase } from "./obstacleBase.js";
 import {
   LARGE_METEOR_MIN_SPEED,
@@ -13,7 +12,7 @@ const largeMeteorConfig = {
   minSpeed: LARGE_METEOR_MIN_SPEED,
   maxSpeed: LARGE_METEOR_MAX_SPEED,
   points: POINTS_LARGE_METEOR, // 10 pontos
-  type: "largeAsteroid"
+  type: "largeMeteor"
 };
 
 export class LargeMeteor extends ObstacleBase {
