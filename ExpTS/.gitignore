@@ -1,0 +1,8 @@
+node_modules
+build
+.env
+logs/*
+!logs/.gitkeep
+.DS_Store
+
+/src/generated/prisma
