@@ -31,7 +31,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Atenção</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Cuidado</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -39,7 +39,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-danger">Deletar <a href="/majors/remove/{{id}}"></a></button>
+        <button type="button" class="btn btn-danger" onclick="deletarMajor('{{id}}')"> Sim, desejo remover</button>
       </div>
     </div>
   </div>

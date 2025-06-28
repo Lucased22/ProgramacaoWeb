@@ -3,13 +3,13 @@ import { loremIpsum } from "lorem-ipsum";
 
 const index = (req: Request, res: Response) =>{
     res.render('home', {
-        mensagem: "Página principal",
+        mensagem: "Página principal da aplicação",
 });
 }
 
 const about = (req: Request ,res: Response) =>{
     res.render('sobre', {
-        mensagem: "Página sobre",
+        mensagem: "Sobre o projeto:",
     });
 }
 
@@ -17,24 +17,22 @@ const welcome = (req: Request ,res: Response) =>{
     res.status(200).send(`Bem vindo, ${req.params.nome}`)
 }
 
-const lorem = (req: Request ,res: Response) =>{
-    res.status(200).send(loremIpsum({
-        count: parseInt(req.params.num),                // Number of "words", "sentences", or "paragraphs"
-        format: "plain",         // "plain" or "html"
-        paragraphLowerBound: 7,  // Min. number of sentences per paragraph.
-        paragraphUpperBound: 15,  // Max. number of sentences per paragarph.
-        random: Math.random,     // A PRNG function
-        sentenceLowerBound: 5,   // Min. number of words per sentence.
-        sentenceUpperBound: 15,  // Max. number of words per sentence.
-        suffix: "<br><br>",            // Line ending, defaults to "\n" or "\r\n" (win32)
-        units: "paragraphs",      // paragraph(s), "sentence(s)", or "word(s)"
-        // words: ["ad", ...]       // Array of words to draw from
-    }))
+const lorem = (req: Request, res: Response) => {
+    const qtd = Number(req.params.qtd);
+
+    const loremText = loremIpsum({
+        count: qtd,      
+        units: 'paragraphs',       
+        format: 'html'             
+    })
+
+    res.send(loremText);
+
 }
 
 const hb1 = (req: Request, res: Response) => {
     res.render('hb1', {
-        mensagem: 'Universidade Federal Do Amazonas',
+        mensagem: 'Bem vindo ao projeto do Space Shooter + Backend',
     });
 }
 
@@ -43,26 +41,27 @@ const hb2 = (req: Request, res: Response) => {
         poweredByNodejs: true,
         name: 'Express',
         type: 'Framework',
+        layout: false,
     });
 }
 
 const hb3 = (req: Request ,res: Response) => {
     const discs = [
-        { nome: "AED1", cg: 90 },
-        { nome: "BD1", cg: 60 },
-        { nome: "IC", cg: 90 },
+        { nome: "AED2", cg: 90 },
+        { nome: "PAA", cg: 60 },
+        { nome: "Redes", cg: 90 },
     ]
 
     const profs = [
         { nome: "David Fernandes", sala: 2338 },
-        { nome: "Edleno Moura", sala: 2336 },
-        { nome: "Pio", sala: 2330 },
+        { nome: "Taynana Uchoa", sala: 2336 },
+        { nome: "César Melo", sala: 2330 },
     ]
     
     res.render("hb3", {
         discs,
         profs,
-        mensagem: "Bem-vindo(a) ao IComp",
+        mensagem: "Bem-vindo(a) ao SpaceShooter Application",
         mostrar_mensagem: true,
     })
 }

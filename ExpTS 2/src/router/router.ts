@@ -1,6 +1,8 @@
 import { Router } from "express";
 import mainController from "../controllers/main.controller";
 import majorController from "../controllers/major.controller";
+import userController from "../controllers/user.controller";
+
 
 const router = Router()
 
@@ -20,5 +22,12 @@ router.all("/majors/create", majorController.create)
 router.get("/majors/read/:id", majorController.read)
 router.all("/majors/update/:id", majorController.update)
 router.get("/majors/remove/:id", majorController.remove)
+
+//rotas do user
+router.get("/users", userController.index)
+router.all("/users/create", userController.create)
+router.get("/users/read/:id", userController.read)
+router.all("/users/update/:id", userController.update)
+router.post("/users/remove/:id", userController.remove)
 
 export default router
