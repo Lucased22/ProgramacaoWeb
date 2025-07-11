@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
-import { createUser, getUsers, getUser, removeUser, updateUser } from "../services/users";
+import { createUser, getUsers, getUser, removeUser, updateUser, checkAuth } from "../services/users";
 import { getMajors, getMajor } from "../services/major";
+import { loginDto } from "../types/user";
+import { log } from "console";
 
 const index = async(req: Request, res: Response) => {
     try{
@@ -15,7 +17,7 @@ const index = async(req: Request, res: Response) => {
     }
 };
 
-const create = async(req: Request, res: Response) => {
+export const create = async(req: Request, res: Response) => {
     if(req.method === "GET") {
         try{
             const majors = await getMajors();
@@ -42,7 +44,7 @@ const create = async(req: Request, res: Response) => {
 }
 
 
-const read = async(req: Request, res: Response) => {
+export const read = async(req: Request, res: Response) => {
     const {id} = req.params;
     try{
         const user = await getUser(id);
@@ -57,7 +59,7 @@ const read = async(req: Request, res: Response) => {
 
 }
 
-const update = async(req: Request, res: Response): Promise<void> => { 
+export const update = async(req: Request, res: Response): Promise<void> => { 
     if(req.method === "GET") {
         try{
             const {id} = req.params;
@@ -90,7 +92,7 @@ const update = async(req: Request, res: Response): Promise<void> => {
 }
 
 
-const remove = async(req: Request, res: Response) => {
+export const remove = async(req: Request, res: Response) => {
     const id = req.params.id;
     try{
         const user = await removeUser(id);
@@ -102,4 +104,29 @@ const remove = async(req: Request, res: Response) => {
     }
 }
 
-export default { index, create, read, update, remove };
+export const login = async (req: Request, res: Response) => {
+    if (req.method === 'GET') {
+        res.render("user/login")
+    } else {
+        const {email, password} = req.body as loginDto
+        const ok = await checkAuth(email, password)
+
+        if(!ok) {
+            return res.render("user/login", {
+                ok
+            })
+        } else {
+            req.session.logado = true
+            res.redirect("/")
+        }
+    }
+}
+
+export const logout = (req: Request, res: Response) => {
+    req.session.destroy(() => {
+        res.clearCookie("connect.sid")
+        res.redirect("/")
+    })
+}
+
+export default { index, create, read, update, remove, login, logout};

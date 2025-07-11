@@ -5,6 +5,7 @@ function validateEnv() {
         PORT: port(),
         NODE_ENV: str({choices: ["development", "production"]}),
         LOGS_PATH: str()
+
     })
 }
 

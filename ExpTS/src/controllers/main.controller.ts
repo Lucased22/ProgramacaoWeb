@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express"
 import { loremIpsum } from "lorem-ipsum";
+import { UUID } from "crypto";
 
 const index = (req: Request, res: Response) =>{
     res.render('home', {
